@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Books</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Genius Books Logo">
+            <span>Genius Books</span>
+        </div>
+        <div class="desktop-links">
+            <a href="products.html" id="desktop-products-link">Products</a>
+            <hr>
+            <a href="#contact-us">Contact Us</a>
+        </div>
+        <div class="menu-toggle">
+            <button id="toggle-btn" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-links" id="mobile-links">
+        <a href="products.html" id="mobile-products-link">
+            Products
+            <span class="arrow">→</span>
+        </a>
+        <a href="#contact-us">
+            Contact Us
+            <span class="arrow">→</span>
+        </a>
+    </div>
+
+    <div class="hero-section section">
+        <div class="hero-text">
+            <h1>Discover high-quality educational materials designed to ignite a passion for learning and support academic success.</h1>
+        </div>
+        <div class="hero-image">
+            <img src="heroimage.jpg" alt="Educational image">
+        </div>
+    </div>
+
+    <div id="who-we-are" class="who-we-are-section section">
+        <h2>Who we are</h2>
+        <p>We are a distinguished name in educational publishing, boasting a decade of expertise.</p>
+        <p>We take pride in our longstanding relationships with esteemed educational institutions across Chennai and Tamil Nadu, where our materials are trusted to enhance learning experiences and outcomes.</p>
+        <p>Our expert team established 150 titles across all subjects in our portfolio and stillc counting.</p>
+    </div>
+
+    <div id="mission" class="mission-section section">
+        <h2>Our Mission</h2>
+        <p>We remain dedicated to empower students and educators alike with exceptional resources tailored to meet the demand of modern education.</p>
+        <p>With a focus on innovative content and exceptional design, our books aim to foster a love of learning and help students achieve their full potential.</p>
+    </div>
+    
+    <div id="products" class="products-section section">
+        <h2>Our Products</h2>
+        <p>Our focus spans from kindergarten to 12th grade, offering textbooks and supplementary materials meticulously crafted for CBSE and metric syllabus.</p>
+        <br>
+    </div>
+
+    <button class="explore-btn" onclick="window.location.href='products.html'">Explore</button>
+
+    <!-- Contact Us Section -->
+    <div id="contact-us" class="contact-us-section section">
+        <h2>Contact Us</h2>
+        <form action="mailto:sales@geniusbooks.in" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <p>E-mail us: sales@geniusbooks.in</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

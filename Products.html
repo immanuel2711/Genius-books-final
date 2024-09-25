@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Genius Books</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="productstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Genius Books Logo">
+            <span>Genius Books</span>
+        </div>
+        <div class="desktop-links">
+            <a href="index.html">Home</a>
+            <hr>
+            <a href="#contact-us">Contact Us</a>
+        </div>
+        <div class="menu-toggle">
+            <button id="toggle-btn" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-links" id="mobile-links">
+        <a href="index.html">Home <span class="arrow">→</span></a>
+        <a href="#contact-us">Contact Us <span class="arrow">→</a>
+    </div>
+
+    <div class="best-sellers">
+        <h2>Our Best Sellers</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="book wrapper/chikku bukku rail.png" alt="Book 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="book wrapper/Screenshot 2024-07-03 180746.png" alt="Book 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="book wrapper/Screenshot 2024-07-03 181347.png" alt="Book 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="book wrapper/young artist class 4.png" alt="Book 4">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="subjects-container">
+        <div class="discover-by-subjects">
+            <h2>Discover our books</h2>
+            <ul>
+                <a href="#" data-images='["term books/englishterm1.png", "term books/englishterm2.png","term books/englishterm3.png"]'><li>Term Book Series    →</li></a>
+                <hr>
+                <a href="#" data-images='["tamil books/enathu tamil lkg.png", "tamil books/enathu tamil ukg.png"]'><li>Tamil Book Series    →</li></a>
+                <hr>
+                <a href="#" data-images='["images/english_book1.jpg", "images/english_book2.jpg"]'><li>English Book Series   →</li></a>
+                <hr>
+                <a href="#" data-images='["images/hindi_book1.jpg", "images/hindi_book2.jpg"]'><li>Hindi Book Series     →</li></a>
+                <hr>
+                <a href="#" data-images='["images/work_book1.jpg", "images/work_book2.jpg"]'><li>Work Book Series      →</li></a>
+                <hr>
+                <a href="#" data-images='["art and craft books/art and craft 1.png", "art and craft books/art and craft 2.png","art and craft books/art and craft 3.png"]'><li>Art & Craft Series    →</li></a>
+                <hr>
+                <a href="#" data-images='["images/guide_book1.jpg", "images/guide_book2.jpg"]'><li>Guide Series          →</li></a>
+            </ul>
+        </div>
+        <div class="subject-images" id="subject-images">
+            <!-- Images will be dynamically inserted here -->
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
