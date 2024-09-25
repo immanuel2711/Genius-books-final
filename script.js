@@ -164,7 +164,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.style.maxHeight = '250px'; // Restrict height
                 subjectImagesContainer.appendChild(img);
             });
+
+            // Scroll to the image container smoothly after displaying the images
+            subjectImagesContainer.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
         });
     });
-    
 });

@@ -221,43 +221,44 @@ body {
 /* Container for the link box and images */
 .subjects-container {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start;
     margin: 20px;
-    width: 100%; /* Ensure the container takes full width */
+    width: 100%;
 }
 
-/* Existing discover-by-subjects styles */
+/* Adjusted discover-by-subjects styles */
 .discover-by-subjects {
     background-color: white;
     padding: 20px;
-    margin: 0; /* Remove margin */
-    text-align: left; /* Align text to the left */
-    border-radius: 10px; /* Add border-radius for rounded corners */
-    width: 300px; /* Fixed width for consistency */
+    margin: 0;
+    text-align: left;
+    border-radius: 10px;
+    width: 240px; /* Reduced width for the links box */
+    margin-left: 0; /* Left margin for links box */
 }
 
 .discover-by-subjects h2 {
     background-color: #1A3B64;
     color: white;
     padding: 10px;
-    margin-bottom: 10px; /* Add margin below heading */
-    border-top-left-radius: 10px; /* Rounded corners for the top left */
-    border-top-right-radius: 10px; /* Rounded corners for the top right */
+    margin-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .discover-by-subjects ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: darkgrey; /* Grey background color for list */
+    background-color: darkgrey;
     padding: 10px;
-    border-bottom-left-radius: 10px; /* Rounded corners for the bottom left */
-    border-bottom-right-radius: 10px; /* Rounded corners for the bottom right */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .discover-by-subjects li {
     font-size: 18px;
-    padding: 8px 0; /* Adjusted padding */
+    padding: 8px 0;
 }
 
 .discover-by-subjects a {
@@ -272,22 +273,53 @@ body {
 
 /* Adjusted subject-images styles */
 .subject-images {
-    display: grid; /* Use CSS grid for layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 50px; /* Space between images */
-    align-items: flex-start; /* Align images to the top */
-    margin-left: 10px; /* Add some space between the link box and images */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    align-items: flex-start;
+    margin-left: 10px;
     align-self: flex-start;
-    margin-top: 41px; /* Move the image down */
-    width: calc(100% - 320px);
-    border-radius: 20px; /* Adjust width to fit next to the discover section */
+    margin-top: 41px;
+    width: calc(100% - 260px); /* Adjust width based on reduced links box */
+    border-radius: 50px;
 }
 
 .subject-images img {
-    width: 100%; /* Ensure images take full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the entire image fits within the container */
-    border-radius: 20px; /* Rounded corners for images */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    overflow: hidden; /* Clip content within the border-radius */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Mobile view - display images below links */
+@media (max-width: 768px) {
+    .subjects-container {
+        flex-direction: column;  /* Stack links and images vertically */
+        align-items: center;     /* Center items */
+    }
+
+    .discover-by-subjects {
+        width: 90%;            /* Reduced width to fit into mobile screen */
+        max-width: 400px;       /* Ensure it doesn't exceed screen size */
+    }
+
+    .subject-images {
+        margin-left: 0;
+        margin-top: 20px;        /* Add space between links and images */
+        width: 100%;             /* Ensure full width for images container */
+    }
+
+    .discover-by-subjects h2 {
+        font-size: 20px;         /* Adjust font size for mobile */
+    }
+
+    .discover-by-subjects ul {
+        padding: 5px;            /* Reduce padding for a more compact layout */
+    }
+
+    .discover-by-subjects li {
+        font-size: 16px;         /* Slightly smaller text for better fit */
+    }
 }
