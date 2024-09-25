@@ -149,7 +149,8 @@ body {
     transform: scale(1.2);
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
     width: 40px;
     height: 40px;
     background-color: #1A3B64;
@@ -167,7 +168,8 @@ body {
     transition: width 0.3s ease, height 0.3s ease;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
     content: '';
     width: 0;
     height: 0;
@@ -194,7 +196,8 @@ body {
     left: 10px;
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
     width: 45px;
     height: 45px;
 }
@@ -269,18 +272,22 @@ body {
 
 /* Adjusted subject-images styles */
 .subject-images {
-    display: flex;
-    flex-direction: row; /* Make sure images are in a row */
-    gap: 250px; /* Space between images */
+    display: grid; /* Use CSS grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 50px; /* Space between images */
     align-items: flex-start; /* Align images to the top */
     margin-left: 10px; /* Add some space between the link box and images */
     align-self: flex-start;
     margin-top: 41px; /* Move the image down */
+    width: calc(100% - 320px);
+    border-radius: 20px; /* Adjust width to fit next to the discover section */
 }
 
 .subject-images img {
-    width: 300px; /* Set a fixed width for images */
+    width: 100%; /* Ensure images take full width of their container */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure the entire image fits within the container */
-    border-radius: 10px; /* Rounded corners for images */
+    border-radius: 20px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Clip content within the border-radius */
 }
