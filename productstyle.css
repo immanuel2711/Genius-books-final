@@ -324,19 +324,22 @@ body {
     }
 }
 .download-btn {
-    background-color: #4CAF50; /* Green background */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
+    background: #1a3b64;
+    border: 1px solid #556699;
+    border-radius: 1000px;
+    box-shadow: 0 1px #444444;
+    padding: 15px 30px;
+    color: #ffffff;
     display: inline-block;
-    font-size: 16px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 5px;
+    font: normal normal 20px/1 "Calibri", sans-serif;
+    text-align: center;
+    margin: 20px auto;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
 }
 
 .download-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #2a4b84;
+    transform: scale(1.1);
+    font-size: 22px;/* Darker green on hover */
 }
