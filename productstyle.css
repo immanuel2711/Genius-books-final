@@ -495,27 +495,29 @@ footer {
         font-size: 20px;
     }
 }
-.footer {
+
+footer.footer {
     background-color: #1A3B64;
-    color: white;
+    padding: 5px; /* Minimal padding to reduce the height */
+    margin: 0; /* No margin around the footer */
     text-align: center;
-    padding: 20px 0;
 }
 
-.footer h2 {
-    margin: 10px 0;
-    font-size: 24px;
+.footer-content {
+    padding: 0;
+    margin: 0 auto; /* Centering content */
+}
+
+footer img.footer-logo {
+    width: 80px; /* Keep the logo size compact */
+    margin-bottom: 5px;
+    border-radius: 8px; /* Small margin between logo and text */
 }
 
 .footer p {
-    margin: 5px 0;
+    margin: 5px 0; /* Small margin for text elements */
 }
-.footer-logo {
-    margin-top: 10px;
-    width: 100px; /* Adjust logo size as needed */
-    height: auto;
-    border-radius: 10px; /* Maintain aspect ratio */
-}
+
 .contact-us-section button {
     background-color: #ffd700;
     color: #000;
