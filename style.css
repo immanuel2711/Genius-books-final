@@ -51,9 +51,9 @@ body {
 }
 
 .desktop-links a:hover {
-    color: #666;
+    color: #ffd700; /* Gold color on hover */
     font-size: 18px;
-    transform: scale(1.1); /* Scale up on hover */
+    transform: scale(1.1);
 }
 
 /* Mobile links container */
@@ -81,9 +81,9 @@ body {
 }
 
 .mobile-links a:hover {
-    color: #666;
+    color: #ffd700; /* Gold color on hover */
     font-size: 18px;
-    transform: scale(1.1); /* Scale up on hover */
+    transform: scale(1.1);
 }
 
 .mobile-links a + a {
@@ -253,11 +253,6 @@ body {
     box-sizing: border-box;
 }
 
-.mission-section .content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .mission-section.section-visible {
     opacity: 1;
     transform: translateY(0);
@@ -373,7 +368,7 @@ body {
     background-color: #1A3B64;
     color: white;
     font-size: 16px;
-    padding: 40px;
+    padding: 20px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -389,66 +384,57 @@ body {
 .contact-us-section form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.contact-us-section form label {
-    font-size: 18px;
-    font-weight: 400;
-    color: white;
+.contact-us-section label {
     margin-bottom: 5px;
+    font-weight: 500;
 }
 
-.contact-us-section form input,
-.contact-us-section form textarea {
-    width: 100%;
-    max-width: 400px;
+.contact-us-section input,
+.contact-us-section textarea {
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-.contact-us-section form button {
-    width: 150px;
+.contact-us-section button {
+    background-color: #ffd700;
+    color: #000;
     padding: 10px;
-    background-color: grey;
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-}
-
-.contact-us-section form button:hover {
-    background-color: whitesmoke;
-    transform: scale(1.1);
     font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
-.contact-us-section p {
-    font-size: 16px;
-    font-weight: 400;
+.contact-us-section button:hover {
+    background-color: #ffc300;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #1A3B64;
     color: white;
     text-align: center;
-    margin-top: 20px;
+    padding: 20px 0;
 }
 
-@media (min-width: 769px) {
-    .contact-us-section {
-        padding: 60px;
-    }
+.footer h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
 
-    .contact-us-section h2 {
-        font-size: 32px;
-    }
-
-    .contact-us-section p {
-        font-size: 20px;
-    }
+.footer p {
+    margin: 5px 0;
+}
+.footer-logo {
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100px; /* Adjust logo size as needed */
+    height: auto; /* Maintain aspect ratio */
 }

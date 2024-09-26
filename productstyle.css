@@ -47,7 +47,7 @@ body {
 }
 
 .desktop-links a:hover {
-    color: #666;
+    color: #ffd700;
     font-size: 18px;
 }
 
@@ -469,7 +469,7 @@ footer {
 }
 
 .contact-us-section form button:hover {
-    background-color: whitesmoke;
+    background-color: #ffd700;
     transform: scale(1.1);
     font-size: 18px;
 }
@@ -494,4 +494,39 @@ footer {
     .contact-us-section p {
         font-size: 20px;
     }
+}
+.footer {
+    background-color: #1A3B64;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+.footer-logo {
+    margin-top: 10px;
+    width: 100px; /* Adjust logo size as needed */
+    height: auto;
+    border-radius: 10px; /* Maintain aspect ratio */
+}
+.contact-us-section button {
+    background-color: #ffd700;
+    color: #000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us-section button:hover {
+    background-color: #ffc300;
 }
