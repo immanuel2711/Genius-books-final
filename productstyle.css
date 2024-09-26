@@ -142,7 +142,9 @@ body {
 .swiper-slide img {
     width: 200px;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain; /* Ensures the full image fits within the dimensions */
+     /* Optional: to fill the space where the image doesn't cover */
+    padding: 10px; /* Optional: for some spacing around the image */
 }
 
 .swiper-slide-active img {
@@ -511,7 +513,7 @@ footer.footer {
 footer img.footer-logo {
     width: 80px; /* Keep the logo size compact */
     margin-bottom: 5px;
-    border-radius: 8px; /* Small margin between logo and text */
+    border-radius: 80px; /* Small margin between logo and text */
 }
 
 .footer p {
