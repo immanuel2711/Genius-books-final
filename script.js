@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
 
+    // Intersection Observer setup for section visibility
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -28,10 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetId.startsWith('#')) { // Only prevent default for internal links
                 e.preventDefault();
                 const targetSection = document.getElementById(targetId.substring(1));
-
                 if (targetSection) {
                     const offsetTop = targetSection.offsetTop - 100;
-
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -151,17 +150,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.discover-by-subjects a');
     const subjectImagesContainer = document.getElementById('subject-images');
 
+    // Function to highlight the current link
+    function highlightLink(activeLink) {
+        links.forEach(link => {
+            link.classList.remove('active'); // Remove active class from all links
+        });
+        activeLink.classList.add('active'); // Add active class to the current link
+    }
+
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             const images = JSON.parse(link.getAttribute('data-images'));
             subjectImagesContainer.innerHTML = ''; // Clear previous images
+
             images.forEach(src => {
                 const img = document.createElement('img');
                 img.src = src;
                 img.alt = 'Book Image';
                 img.style.width = '100%'; // Ensure images fit within the container
                 img.style.maxHeight = '250px'; // Restrict height
+
+                // Add a fade-in effect on image load
+                img.classList.add('fade-in'); // Add 'fade-in' class for animation
+                img.onload = () => {
+                    img.classList.add('loaded'); // Add 'loaded' class to trigger fade-in
+                };
+
                 subjectImagesContainer.appendChild(img);
             });
 
@@ -170,6 +185,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth',
                 block: 'start',
             });
+
+            // Highlight the current clicked link
+            highlightLink(link);
         });
     });
+
+    // Trigger Tamil Book Series only when scrolling to the subject section
+    const subjectObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const subjectSection = document.getElementById('subject-images');
+    const subjectObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const tamilBookLink = document.querySelector('a[data-images*="tamil books"]');
+                if (tamilBookLink) {
+                    tamilBookLink.click(); // Trigger Tamil book series only when in view
+                    highlightLink(tamilBookLink); // Highlight the Tamil book link
+                }
+                observer.unobserve(entry.target); // Ensure it happens only once
+            }
+        });
+    }, subjectObserverOptions);
+
+    subjectObserver.observe(subjectSection);
 });

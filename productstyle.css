@@ -271,6 +271,15 @@ body {
     color: white;
 }
 
+/* Style for the active link */
+.discover-by-subjects a.active {
+    color: white;
+    background-color: #1A3B64; /* Change to your preferred color */
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
 /* Adjusted subject-images styles */
 .subject-images {
     display: grid;
@@ -298,6 +307,7 @@ body {
     .subjects-container {
         flex-direction: column;  /* Stack links and images vertically */
         align-items: center;     /* Center items */
+        margin: 0;              /* Remove margin for centering */
     }
 
     .discover-by-subjects {
@@ -322,7 +332,15 @@ body {
     .discover-by-subjects li {
         font-size: 16px;         /* Slightly smaller text for better fit */
     }
+
+    /* Prevent automatic scrolling */
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-y: auto; /* Enable vertical scrolling only */
+        scroll-behavior: smooth; /* Smooth scrolling */
+    }
 }
+
 .download-btn {
     background: #1a3b64;
     border: 1px solid #556699;
@@ -340,6 +358,57 @@ body {
 
 .download-btn:hover {
     background-color: #2a4b84;
-    transform: scale(1.1);
-    font-size: 22px;/* Darker green on hover */
+    transform: scale(1.05);
+    font-size: 22px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A3B64;
+    color: white;
+}
+
+.subject-images img:hover {
+    transform: scale(1.05); /* Scale up slightly */
+}
+
+#subject-images img.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Add a transition effect for active links */
+.discover-by-subjects a.active {
+    /* Change to your preferred color */
+    font-weight: bold; /* Make it bold for emphasis */
+    transition: color 0.3s ease;
+}
+
+/* Styles for fading in images */
+#subject-images img {
+    opacity: 0;
+    transform: translateY(20px) scale(1); /* Initial scale set to 1 */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 100%; /* Ensure images fit within the container */
+    max-height: 250px; /* Restrict height */
+}
+
+/* Style for loaded images */
+#subject-images img.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Reset to scale 1 */
+}
+
+/* Hover effect for images */
+#subject-images img:hover {
+    transform: scale(1.1); /* Scale up the image on hover */
+    transition: transform 0.3s ease; /* Smooth transition for the scale */
+}
+
+/* Optional: Add a transition effect for active links */
+.discover-by-subjects a.active {
+    /* Change to your preferred color */
+    font-weight: bold; /* Make it bold for emphasis */
+    transition: color 0.3s ease;
 }
