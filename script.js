@@ -49,6 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.classList.toggle('change');
     });
 
+    const contactForm = document.querySelector('.contact-us-section form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Create mailto link with the form data
+            const mailtoLink = `mailto:emmanuelcreationz@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body= ${encodeURIComponent(message)}`;
+            
+            // Open the user's mail client
+            window.location.href = mailtoLink;
+
+            // Optionally reset the form after submission
+            contactForm.reset();
+        });
+    }
+
     function getDominantColor(imageElement, callback) {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');

@@ -86,10 +86,28 @@
     <div class="subject-images" id="subject-images">
         <!-- Images will be dynamically inserted here -->
     </div>
+    
 </div>
+<div id="contact-us" class="contact-us-section section">
+    <h2>Contact Us</h2>
+    <form action="mailto:sales@geniusbooks.in" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <p>E-mail us: sales@geniusbooks.in</p>
+</div>
+
 
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+
+    
 </body>
 </html>
