@@ -54,7 +54,7 @@ font-family: "Raleway", sans-serif;
 
 /* Flex container */
 .explore-container {
-  isplay: flex;
+  display: flex;
   padding: 30px;
 }
 
