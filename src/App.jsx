@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+
 import { FaBars } from "react-icons/fa";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Explore from "./pages/Explore.jsx";
