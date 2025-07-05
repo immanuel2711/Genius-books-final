@@ -77,9 +77,10 @@ function App() {
           <button className="btn-filled" onClick={() => navigate("/explore")}>
             Explore Our Books
           </button>
-          <a href="/#contact" className="btn-outline">
-            Contact Us
-          </a>
+          <a href="/Catalogue.pdf" download className="btn-outline">
+  Click to download our Catalogue
+</a>
+
         </div>
       </header>
 
