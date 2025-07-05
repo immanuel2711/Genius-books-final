@@ -886,3 +886,83 @@ a:visited {
 a:hover {
   color: orange; /* Match your hover color if needed */
 }
+.icon-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.icon-link:hover {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-7px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  animation: subtlePulse 3s infinite ease-in-out;
+  min-width: 130px;
+}
+
+.icon-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 6px 20px rgba(255, 114, 111, 0.25),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.icon-card:active {
+  transform: scale(0.96);
+  background: radial-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0));
+  box-shadow: 0 3px 6px rgba(255, 114, 111, 0.15);
+}
+
+.icon {
+  color: #ff726f;
+  font-size: 32px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  text-align: center;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes subtlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Optional: Mobile responsiveness */
+@media (max-width: 600px) {
+  .icon-card {
+    padding: 14px 16px;
+    min-width: 100px;
+  }
+  .label {
+    font-size: 0.92rem;
+  }
+}
+

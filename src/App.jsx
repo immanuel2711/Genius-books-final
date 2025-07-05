@@ -158,57 +158,74 @@ function App() {
 
       {/* Contact Section */}
       <div className="contact-section" id="contact" ref={contactRef}>
-        <p className="contact-subtext">
-          Our team is available to assist you during our business hours.
-        </p>
+  <p className="contact-subtext">
+    Our team is available to assist you during our business hours.
+  </p>
 
-        <h2 className="contact-title">Contact Us</h2>
+  <h2 className="contact-title">Contact Us</h2>
 
-        <p className="contact-description">
-          Have a question or want to learn more about our school book publishing
-          services? <br />
-          Reach out to us using the contact information below.
-        </p>
+  <p className="contact-description">
+    Have a question or want to learn more about our school book publishing
+    services? <br />
+    Reach out to us using the contact details below.
+  </p>
 
-        <div className="contact-boxes">
-          <div className="contact-box">
-            <MdEmail size={30} style={{ color: "#ff726f" }} />
-            <h3>Email</h3>
-            <p>
-              Feel free to send us an email or give
-              <br />
-              us a call for any inquiries.
-            </p>
-            <p className="contact-detail">sales@geniusbooks.in</p>
-          </div>
+  <div className="contact-boxes">
 
-          <div className="contact-box">
-            <MdPhone size={30} style={{ color: "#ff726f" }} />
-            <h3>Phone</h3>
-            <p>We look forward to hearing from you!</p>
-            <p className="contact-detail">044-4850 3975</p>
-          </div>
+    {/* EMAIL */}
+    <div className="contact-box">
+      <a
+        href="mailto:sales@geniusbooks.in"
+        className="icon-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <MdEmail size={32} className="icon" />
+        <span className="label">Email Us</span>
+      </a>
+      
+      <p>Our team will be in touch as soon as possible.</p>
+      <p className="contact-detail">sales@geniusbooks.in</p>
+    </div>
 
-          <div className="contact-box">
-            <MdLocationOn size={30} style={{ color: "#ff726f" }} />
-            <h3>Office</h3>
-            <p>
-              Business Hours: Monday - Friday,
-              <br />
-              9:00 AM - 5:00 PM
-            </p>
-            <p className="contact-detail">
-              Jain Akshay Apartment,
-              <br />
-              No 15/8, FO.1,
-              <br />
-              Thirumoorthy street, T.Nagar
-              <br />
-              Chennai 600017
-            </p>
-          </div>
-        </div>
-      </div>
+    {/* PHONE */}
+    <div className="contact-box">
+      <a
+        href="tel:04448503975"
+        className="icon-card"
+      >
+        <MdPhone size={32} className="icon" />
+        <span className="label">Call Now</span>
+      </a>
+      
+      <p>Call us during business hours for direct support.</p>
+      <p className="contact-detail">044-4850 3975</p>
+    </div>
+
+    {/* OFFICE */}
+    <div className="contact-box">
+      <a
+        href="https://maps.app.goo.gl/546VxwRSacfRx3iH7"
+        className="icon-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <MdLocationOn size={32} className="icon" />
+        <span className="label">Open in Maps</span>
+      </a>
+      
+      <p>Mon–Fri · 9 AM to 5 PM</p>
+      <p className="contact-detail">
+        Jain Akshay Apartment,<br />
+        No 15/8, FO.1,<br />
+        Thirumoorthy Street, T.Nagar<br />
+        Chennai 600017
+      </p>
+    </div>
+  </div>
+</div>
+
+
     </div>
   );
 }
