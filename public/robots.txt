@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /register
+
+# Sitemap
+Sitemap: https://geniusbooks.in/sitemap.xml
