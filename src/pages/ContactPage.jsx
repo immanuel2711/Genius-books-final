@@ -39,22 +39,65 @@ export default function ContactPage() {
               body="Share your school requirement and our team will respond with the right books, catalogue details, or support."
             />
             {submitted ? (
-              <div className="form-success">
-                <div className="form-success-icon">✓</div>
+              <div className="form-success" role="status" aria-live="polite">
+                <div className="form-success-icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
                 <h3>Thank you for your enquiry!</h3>
-                <p>Our publishing team will review your requirement and get back to you within 1–2 business days. We look forward to supporting your school.</p>
+                <p>Our publishing team will review your requirement and get back to you within 1&ndash;2 business days. We look forward to supporting your school.</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <input name="name" placeholder="Full Name" required />
-                <input name="email" type="email" placeholder="Email Address" required />
-                <input name="school" placeholder="School / Institution Name" required />
-                <input name="subject" placeholder="Subject or Book Series" />
-                <textarea
-                  name="message"
-                  placeholder="Tell us the classes, subjects, or book series your school needs."
-                  rows="6"
-                />
+              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <div className="field-group">
+                  <label className="form-label" htmlFor="contact-name">Full Name</label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    placeholder="e.g. Priya Sundaram"
+                    autoComplete="name"
+                    required
+                  />
+                </div>
+                <div className="field-group">
+                  <label className="form-label" htmlFor="contact-email">Email Address</label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    placeholder="e.g. contact@school.edu.in"
+                    autoComplete="email"
+                    required
+                  />
+                </div>
+                <div className="field-group">
+                  <label className="form-label" htmlFor="contact-school">School / Institution Name</label>
+                  <input
+                    id="contact-school"
+                    name="school"
+                    placeholder="e.g. Sri Vidya Mandir Hr. Sec. School"
+                    autoComplete="organization"
+                    required
+                  />
+                </div>
+                <div className="field-group">
+                  <label className="form-label" htmlFor="contact-subject">Subject or Book Series</label>
+                  <input
+                    id="contact-subject"
+                    name="subject"
+                    placeholder="e.g. Tamil Book Series, Class 5–8"
+                  />
+                </div>
+                <div className="field-group">
+                  <label className="form-label" htmlFor="contact-message">Enquiry Details</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    placeholder="Tell us the classes, subjects, or book series your school needs."
+                    rows="5"
+                  />
+                </div>
                 <button className="button button-primary" type="submit">
                   Send Enquiry
                 </button>
@@ -97,12 +140,12 @@ export default function ContactPage() {
               <iframe
                 className="map-frame"
                 src={mapEmbedLink}
-                title="Genius Books location"
+                title="Genius Books location — T.Nagar, Chennai"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <a className="map-cta" href={mapLink} target="_blank" rel="noreferrer">
-                Open in Google Maps →
+                Open in Google Maps &rarr;
               </a>
             </div>
           </Reveal>

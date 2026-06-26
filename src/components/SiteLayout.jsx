@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { navigation } from "../data/siteData";
 import ScrollMeter from "./ScrollMeter";
@@ -6,24 +7,36 @@ import { useAuth } from "../context/AuthContext";
 export default function SiteLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   function handleLogout() {
     logout();
     navigate("/");
   }
 
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
     <div className="site-shell">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollMeter />
       <header className="topbar">
-        <NavLink className="brand" to="/">
-          Genius Books
+        <NavLink className="brand" to="/" onClick={closeMenu}>
+          <img src="/logo.png" alt="Genius Books" className="brand-logo" />
         </NavLink>
-        <nav className="nav-links" aria-label="Primary">
+
+        <nav
+          className={`nav-links${menuOpen ? " open" : ""}`}
+          aria-label="Primary"
+          id="primary-nav"
+        >
           {navigation.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
+              onClick={closeMenu}
               className={({ isActive }) =>
                 `nav-link${isActive ? " active" : ""}${item.to === "/library" ? " nav-link-library" : ""}`
               }
@@ -37,9 +50,10 @@ export default function SiteLayout() {
             </NavLink>
           ))}
         </nav>
+
         {user ? (
           <div className="user-menu">
-            <div className="user-avatar-chip">
+            <div className="user-avatar-chip" aria-hidden="true">
               {user.name?.charAt(0).toUpperCase()}
             </div>
             <span className="user-school-name">{user.name}</span>
@@ -50,12 +64,44 @@ export default function SiteLayout() {
             Partner with Us
           </NavLink>
         )}
+
+        <button
+          className="nav-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+        >
+          {menuOpen ? (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          )}
+        </button>
       </header>
+
+      {menuOpen && (
+        <div
+          className="nav-backdrop open"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+
+      <span id="main-content" tabIndex={-1} />
       <Outlet />
+
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand-block">
-            <p className="footer-brand">Genius Books</p>
+            <img src="/logo.png" alt="Genius Books" className="footer-brand-logo" />
             <p className="footer-copy">
               Premium school book publishing for institutions that value dependable
               textbooks, structured series, and classroom-ready learning resources.
@@ -63,20 +109,6 @@ export default function SiteLayout() {
             <div className="footer-seal">
               <span>Educational Publishing</span>
               <strong>Trusted by Schools</strong>
-            </div>
-            <div className="social-links">
-              <a className="social-link" href="#" aria-label="Facebook" rel="noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a className="social-link" href="#" aria-label="Instagram" rel="noreferrer">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/></svg>
-              </a>
-              <a className="social-link" href="#" aria-label="LinkedIn" rel="noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a className="social-link" href="#" aria-label="YouTube" rel="noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-              </a>
             </div>
           </div>
 
@@ -96,7 +128,7 @@ export default function SiteLayout() {
             <div className="footer-contact-list">
               <a href="mailto:sales@geniusbooks.in">sales@geniusbooks.in</a>
               <a href="tel:04448503975">044-4850 3975</a>
-              <p>Mon-Fri • 9 AM to 5 PM</p>
+              <p>Mon-Fri &bull; 9 AM to 5 PM</p>
               <p>
                 Jain Akshay Apartment, No 15/8, FO.1,
                 <br />
@@ -108,8 +140,8 @@ export default function SiteLayout() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="footer-note">© 2026 Genius Books. All rights reserved.</p>
-          <p className="footer-note">Premium School Book Publishing · Chennai, India</p>
+          <p className="footer-note">&copy; 2026 Genius Books. All rights reserved.</p>
+          <p className="footer-note">Premium School Book Publishing &middot; Chennai, India</p>
         </div>
       </footer>
     </div>

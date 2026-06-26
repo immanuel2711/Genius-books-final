@@ -331,7 +331,7 @@ export const catalogueBooks = [
 ];
 
 export const homeStats = [
-  { value: "500+", label: "Schools reached" },
+  { value: "1000+", label: "Schools reached" },
   { value: "30+", label: "Years in educational publishing" },
   { value: "12", label: "Core school subjects" },
   { value: "98%", label: "Partner school retention" },
@@ -408,10 +408,3 @@ export const mapLink = "https://share.google/we3StmlqQ1fmBKnx0";
 export const mapEmbedLink =
   "https://www.google.com/maps?q=Jain%20Akshay%20Apartment%2C%20No%2015%2F8%2C%20FO.1%2C%20Thirumoorthy%20Street%2C%20T.Nagar%2C%20Chennai%20600017&z=17&output=embed";
 
-export const partnerLogos = [
-  "Sri Vidya Mandir",
-  "Bharathi Matric",
-  "Holy Cross Schools",
-  "Velammal Network",
-  "DAV Group Chennai",
-];

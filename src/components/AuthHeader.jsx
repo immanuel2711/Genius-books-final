@@ -5,7 +5,7 @@ export default function AuthHeader({ mode = "register" }) {
   return (
     <header className="auth-topbar-bar">
       <Link to="/" className="brand" style={{ textDecoration: "none" }}>
-        Genius Books
+        <img src="/logo.png" alt="Genius Books" className="brand-logo" />
       </Link>
       <nav className="auth-topbar-nav" aria-label="Site navigation">
         {navigation.map((item) => (

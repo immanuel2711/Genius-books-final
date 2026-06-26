@@ -66,17 +66,21 @@ export default function LoginPage() {
   }
 
   function field(name, props) {
+    const id = `login-${name}`;
     return (
       <div className="field-group">
         <input
+          id={id}
           name={name}
           value={form[name]}
           onChange={handleChange}
           onBlur={handleBlur}
+          aria-label={props.placeholder}
+          aria-invalid={errors[name] ? "true" : undefined}
           className={errors[name] ? "input-invalid" : ""}
           {...props}
         />
-        {errors[name] && <p className="field-error">{errors[name]}</p>}
+        {errors[name] && <p className="field-error" role="alert">{errors[name]}</p>}
       </div>
     );
   }

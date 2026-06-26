@@ -37,7 +37,9 @@ export default function SeriesPage() {
           </Reveal>
           <Reveal className="feature-banner-art" delay={180}>
             <div className="floating-edition">
-              <div className="floating-book" />
+              <img src="/covers/guide series/4.png" alt="" className="float-book float-book--back" aria-hidden="true" />
+              <img src="/covers/guide series/2.png" alt="" className="float-book float-book--mid" aria-hidden="true" />
+              <img src="/covers/guide series/1.png" alt="Guide Series book cover" className="float-book float-book--front" />
               <div className="floating-badge">2026 Edition</div>
             </div>
           </Reveal>

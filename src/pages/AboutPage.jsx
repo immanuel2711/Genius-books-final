@@ -1,17 +1,18 @@
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import SEO from "../components/SEO";
-import { philosophy } from "../data/siteData";
+import { philosophy, trustPoints } from "../data/siteData";
 
 export default function AboutPage() {
   return (
     <main className="page-shell">
       <SEO
         title="About Us | 30+ Years of School Publishing in Chennai"
-        description="Genius Books has published curriculum-aligned school textbooks in Chennai, Tamil Nadu since 1994. Trusted by 500+ schools for our Tamil, English, Hindi and multi-subject series."
+        description="Genius Books has published curriculum-aligned school textbooks in Chennai, Tamil Nadu since 1994. Trusted by 1000+ schools for our Tamil, English, Hindi and multi-subject series."
         canonical="/about"
         breadcrumbs={[{ name: "About", path: "/about" }]}
       />
+
       <section className="page-hero about-hero">
         <Reveal>
           <p className="eyebrow">Our Story</p>
@@ -29,11 +30,12 @@ export default function AboutPage() {
               <img
                 src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80"
                 alt="Students engaged in classroom learning with textbooks"
+                loading="lazy"
               />
               <div className="about-img-overlay">
                 <div className="about-img-badge">
-                  <span>Publishing Since</span>
-                  <strong>1994 · Chennai</strong>
+                  <span>Est.</span>
+                  <strong>1994</strong>
                 </div>
               </div>
             </div>
@@ -41,7 +43,7 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="story-panel">
               <blockquote className="story-quote">
-                "Every page is a pathway to mastery. The books we publish should feel that way in every classroom."
+                &ldquo;Every page is a pathway to mastery. The books we publish should feel that way in every classroom.&rdquo;
               </blockquote>
               <SectionHeading
                 eyebrow="Our Philosophy"
@@ -61,10 +63,29 @@ export default function AboutPage() {
       </section>
 
       <section className="section section-soft">
+        <SectionHeading
+          eyebrow="Why Schools Choose Us"
+          title="Publishing built around real classroom needs"
+          body="Three decades of educational publishing means we understand what works in Indian classrooms — not just in theory, but in practice."
+          align="center"
+        />
+        <div className="insight-points" style={{ maxWidth: "52rem", margin: "0 auto" }}>
+          {trustPoints.map((item, index) => (
+            <Reveal key={item.title} delay={index * 100}>
+              <div className="insight-point">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section section-dark">
         <Reveal>
           <div className="about-stat-banner">
             <span className="about-stat-number">1000+</span>
-            <p className="about-stat-label">Schools across Tamil Nadu trust Genius Books for their curriculum needs.</p>
+            <p className="about-stat-label">Schools across Tamil Nadu trust Genius Books for their curriculum needs — a partnership built over thirty years of consistent quality.</p>
           </div>
         </Reveal>
       </section>

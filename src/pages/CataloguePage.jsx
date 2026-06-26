@@ -166,7 +166,7 @@ export default function CataloguePage() {
           ) : (
             <div className="empty-state">
               <h3>No books match this filter</h3>
-              <p>Try another series, class group, or clear the search to view all wrappers.</p>
+              <p>Try another series, class group, or clear the search to view all books.</p>
             </div>
           )}
         </div>

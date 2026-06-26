@@ -11,9 +11,11 @@ export default function HomePage() {
     <main>
       <SEO
         title="School Textbook Publisher in Chennai, Tamil Nadu"
-        description="Genius Books – premium school textbook publisher in Chennai, Tamil Nadu since 1994. Trusted by 500+ schools for Tamil, English, Hindi and multi-subject books from LKG to Class 12."
+        description="Genius Books – premium school textbook publisher in Chennai, Tamil Nadu since 1994. Trusted by 1000+ schools for Tamil, English, Hindi and multi-subject books from LKG to Class 12."
         canonical="/"
       />
+
+      {/* ── Hero ────────────────────────────────────────── */}
       <section className="hero">
         <div className="hero-copy">
           <Reveal>
@@ -46,6 +48,10 @@ export default function HomePage() {
                 src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&q=80"
                 alt="Grand academic library with towering bookshelves and elegant architecture"
               />
+              <div className="school-scene__card school-scene__card--bottom">
+                <strong>1000+ Schools</strong>
+                <p>Across Tamil Nadu trust us</p>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -53,6 +59,7 @@ export default function HomePage() {
 
       <MarqueeShelf items={heroShelves} />
 
+      {/* ── Series grid ─────────────────────────────────── */}
       <section className="section section-soft">
         <SectionHeading
           eyebrow="Core Series"
@@ -74,12 +81,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Insight layout ──────────────────────────────── */}
       <section className="section insight-layout">
         <Reveal className="insight-visual">
           <div className="insight-img-panel">
             <img
               src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80"
               alt="Well-organised school library with rows of educational books"
+              loading="lazy"
             />
           </div>
         </Reveal>
@@ -102,6 +111,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Featured catalogue ──────────────────────────── */}
       <section className="section section-dark">
         <SectionHeading
           eyebrow="Featured Catalogue"
@@ -117,7 +127,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section stats-band">
+      {/* ── Stats band ──────────────────────────────────── */}
+      <section className="section stats-band" aria-label="Key statistics">
         {homeStats.map((item, index) => (
           <Reveal key={item.label} delay={index * 60}>
             <div className="stat-card">
