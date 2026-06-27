@@ -7,8 +7,8 @@ export default function AboutPage() {
   return (
     <main className="page-shell">
       <SEO
-        title="About Us | 30+ Years of School Publishing in Chennai"
-        description="Genius Books has published curriculum-aligned school textbooks in Chennai, Tamil Nadu since 1994. Trusted by 1000+ schools for our Tamil, English, Hindi and multi-subject series."
+        title="About Us | 13+ Years of School Publishing in Chennai"
+        description="Genius Books has published curriculum-aligned school textbooks in Chennai, Tamil Nadu for over 13 years. Trusted by 1000+ schools for our Tamil, English, Hindi and multi-subject series."
         canonical="/about"
         breadcrumbs={[{ name: "About", path: "/about" }]}
       />
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <p className="eyebrow">Our Story</p>
           <h1>Our story of <span>academic</span> mastery</h1>
           <p className="hero-text narrow">
-            We publish school books with a focus on syllabus relevance, teacher usability, and lasting classroom value — built over three decades of educational publishing in Tamil Nadu.
+            We publish school books with a focus on syllabus relevance, teacher usability, and lasting classroom value — built over thirteen years of educational publishing in Tamil Nadu.
           </p>
         </Reveal>
       </section>
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Why Schools Choose Us"
           title="Publishing built around real classroom needs"
-          body="Three decades of educational publishing means we understand what works in Indian classrooms — not just in theory, but in practice."
+          body="Over thirteen years of educational publishing means we understand what works in Indian classrooms — not just in theory, but in practice."
           align="center"
         />
         <div className="insight-points" style={{ maxWidth: "52rem", margin: "0 auto" }}>
@@ -85,7 +85,7 @@ export default function AboutPage() {
         <Reveal>
           <div className="about-stat-banner">
             <span className="about-stat-number">1000+</span>
-            <p className="about-stat-label">Schools across Tamil Nadu trust Genius Books for their curriculum needs — a partnership built over thirty years of consistent quality.</p>
+            <p className="about-stat-label">Schools across Tamil Nadu trust Genius Books for their curriculum needs — a partnership built over thirteen years of consistent quality.</p>
           </div>
         </Reveal>
       </section>

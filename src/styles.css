@@ -1267,14 +1267,14 @@ img { max-width: 100%; display: block; }
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 800;
-  color: var(--navy);
+  color: var(--gold);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
 .about-stat-label {
   font-size: 1.15rem;
-  color: var(--muted);
+  color: rgba(239, 234, 220, 0.8);
   max-width: 36rem;
   margin: 0 auto;
   line-height: 1.7;

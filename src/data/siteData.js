@@ -332,7 +332,7 @@ export const catalogueBooks = [
 
 export const homeStats = [
   { value: "1000+", label: "Schools reached" },
-  { value: "30+", label: "Years in educational publishing" },
+  { value: "13+", label: "Years in educational publishing" },
   { value: "12", label: "Core school subjects" },
   { value: "98%", label: "Partner school retention" },
 ];

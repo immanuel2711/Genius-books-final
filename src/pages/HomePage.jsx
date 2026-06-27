@@ -11,7 +11,7 @@ export default function HomePage() {
     <main>
       <SEO
         title="School Textbook Publisher in Chennai, Tamil Nadu"
-        description="Genius Books – premium school textbook publisher in Chennai, Tamil Nadu since 1994. Trusted by 1000+ schools for Tamil, English, Hindi and multi-subject books from LKG to Class 12."
+        description="Genius Books – premium school textbook publisher in Chennai, Tamil Nadu. Trusted by 1000+ schools for Tamil, English, Hindi and multi-subject books from LKG to Class 12."
         canonical="/"
       />
 
