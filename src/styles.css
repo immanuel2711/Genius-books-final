@@ -32,10 +32,11 @@
 
 /* ─── Reset ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background-color: var(--bg);
   background-image:
     radial-gradient(ellipse at 6% 10%,  rgba(201, 165, 42, 0.07) 0%, transparent 38%),
@@ -2431,8 +2432,6 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 760px) {
-  .topbar { flex-wrap: wrap; }
-  .nav-links { order: 3; width: 100%; justify-content: space-between; }
   .topbar-cta { display: none; }
 
   .hero, .page-hero, .section, .footer, .testimonials-section {
@@ -2440,7 +2439,14 @@ img { max-width: 100%; display: block; }
     padding-right: 1.25rem;
   }
 
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .hero { min-height: auto; padding-top: 3rem; padding-bottom: 2.5rem; }
+  .page-hero { padding-top: 4rem; padding-bottom: 2.5rem; }
+  .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .footer { padding-top: 3rem; padding-bottom: 2rem; }
+  .testimonials-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  .footer-top { gap: 2rem; }
 
   .catalogue-strip, .series-grid, .catalogue-grid,
   .stats-band, .philosophy-band, .logo-row,
@@ -2454,11 +2460,16 @@ img { max-width: 100%; display: block; }
 
   .auth-shell { grid-template-columns: 1fr; }
   .auth-left  { display: none; }
-  .auth-right { padding: 3rem 1.5rem; }
+  .auth-right { padding: 2.5rem 1.5rem; }
 
   .library-grid { grid-template-columns: repeat(2, 1fr); }
   .lib-subject-tabs { display: none; }
   .user-school-name { display: none; }
+
+  .contact-form-panel { padding: 1.5rem 1.25rem; border-radius: var(--r-lg); }
+  .testimonial-quote-mark { font-size: 3rem; }
+  .lib-tab-group { flex-wrap: wrap; }
+  .section-heading { margin-bottom: 2rem; }
 }
 
 @media (max-width: 540px) {
@@ -2466,6 +2477,19 @@ img { max-width: 100%; display: block; }
   .auth-form-row { grid-template-columns: 1fr; }
   .pdf-modal-overlay { padding: 0.5rem; }
   .pdf-modal { border-radius: 1rem; }
+
+  .section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .page-hero { padding-top: 3rem; padding-bottom: 2rem; }
+  .hero { padding-top: 2.5rem; padding-bottom: 2rem; }
+  .auth-right { padding: 2rem 1.25rem; }
+  .footer { padding-top: 2.5rem; }
+}
+
+@media (max-width: 380px) {
+  .section { padding-top: 2rem; padding-bottom: 2rem; }
+  .page-hero { padding-top: 2.5rem; }
+  .contact-form-panel { padding: 1.25rem 1rem; }
+  .about-stat-number { font-size: clamp(3rem, 14vw, 4rem); }
 }
 
 /* ─── Video Modal ────────────────────────────────── */

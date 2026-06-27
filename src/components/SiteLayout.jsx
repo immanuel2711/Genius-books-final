@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { navigation } from "../data/siteData";
 import ScrollMeter from "./ScrollMeter";
@@ -17,6 +17,11 @@ export default function SiteLayout() {
   function closeMenu() {
     setMenuOpen(false);
   }
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
     <div className="site-shell">
