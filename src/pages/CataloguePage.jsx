@@ -1,74 +1,92 @@
-import { useDeferredValue, useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 import Reveal from "../components/Reveal";
-import BookMockup from "../components/BookMockup";
 import SectionHeading from "../components/SectionHeading";
 import SEO from "../components/SEO";
-import { catalogueBooks } from "../data/siteData";
+
+const SERIES = [
+  {
+    id: "genius-term",
+    title: "Genius Term Book Series",
+    folder: "Genius  Term Book Series",
+    isTermBook: true,
+    books: ["LKG - Term 1.png", "LKG - Term 2.png", "LKG _ Term 3.png"],
+  },
+  {
+    id: "genius-term-hindi",
+    title: "Genius Term Book Series with Hindi",
+    folder: "Genius Term Book Series  with Hindi",
+    isTermBook: true,
+    books: [
+      "LKG Term - 1.jpg",
+      "LKG Term - 2.png",
+      "LKG Term - 3.png",
+      "UKG Term - 1.jpg",
+      "UKG Term - 2.jpg",
+      "UKG Term - 3.jpg",
+    ],
+  },
+  {
+    id: "mugil-textbook",
+    title: "Mugil Tamil Textbook",
+    folder: "Mugil Tamil Textbook",
+    isTermBook: false,
+    books: [
+      "Class 1.png",
+      "Class 2.png",
+      "Class 3.png",
+      "Class 4.png",
+      "Class 5.png",
+      "Class 6.jpg",
+      "Class 7.jpg",
+      "Class 8.jpg",
+    ],
+  },
+  {
+    id: "mugil-grammar",
+    title: "Mugil Tamil Grammar",
+    folder: "Mugil Tamil Grammar",
+    isTermBook: false,
+    books: [
+      "Class 1.png",
+      "Class 2.png",
+      "Class 3.png",
+      "Class 4.png",
+      "Class 5.png",
+      "Class 6.png",
+      "Class 7.png",
+      "class 8.png",
+    ],
+  },
+  {
+    id: "mugil-handwriting",
+    title: "Mugil Tamil Handwriting",
+    folder: "Mugil Tamil Handwriting",
+    isTermBook: false,
+    books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
+  },
+];
+
+function imgSrc(folder, file) {
+  return `/covers-final/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+}
+
+function caption(file) {
+  return file.replace(/\.[^.]+$/, "").replace(/_/g, " - ").trim();
+}
 
 export default function CataloguePage() {
-  const [searchParams] = useSearchParams();
-  const [query, setQuery] = useState("");
-  const [selectedSeries, setSelectedSeries] = useState(searchParams.get("series") || "All");
-  const [selectedClassGroup, setSelectedClassGroup] = useState("All");
-  const [selectedSubject, setSelectedSubject] = useState("All");
-
-  const deferredQuery = useDeferredValue(query);
-
-  const seriesOptions = useMemo(
-    () => ["All", ...new Set(catalogueBooks.map((book) => book.series))],
-    [],
-  );
-
-  const classOptions = useMemo(
-    () => ["All", ...new Set(catalogueBooks.map((book) => book.classGroup))],
-    [],
-  );
-
-  const subjectOptions = useMemo(
-    () => ["All", ...new Set(catalogueBooks.map((book) => book.subject))],
-    [],
-  );
-
-  const filteredBooks = useMemo(() => {
-    const search = deferredQuery.trim().toLowerCase();
-
-    return catalogueBooks.filter((book) => {
-      const matchesSearch =
-        !search ||
-        [book.title, book.series, book.classLabel, book.subject, book.kicker]
-          .join(" ")
-          .toLowerCase()
-          .includes(search);
-
-      const matchesSeries =
-        selectedSeries === "All" || book.series === selectedSeries;
-
-      const matchesClass =
-        selectedClassGroup === "All" || book.classGroup === selectedClassGroup;
-
-      const matchesSubject =
-        selectedSubject === "All" || book.subject === selectedSubject;
-
-      return matchesSearch && matchesSeries && matchesClass && matchesSubject;
-    });
-  }, [deferredQuery, selectedClassGroup, selectedSeries, selectedSubject]);
-
-  const resetFilters = () => {
-    setQuery("");
-    setSelectedSeries("All");
-    setSelectedClassGroup("All");
-    setSelectedSubject("All");
-  };
+  const [activeId, setActiveId] = useState(SERIES[0].id);
+  const active = SERIES.find((s) => s.id === activeId);
 
   return (
     <main className="page-shell">
       <SEO
-        title="School Book Catalogue | 24+ Titles by Class & Subject"
-        description="Browse Genius Books' complete school textbook catalogue for Tamil Nadu. Filter 24+ curriculum-aligned titles by series, class group or subject — from LKG to Class 12."
+        title="School Book Catalogue | Genius Books"
+        description="Browse Genius Books' complete school textbook catalogue for Tamil Nadu — term books, Tamil textbooks, grammar, and handwriting from LKG to Class 8."
         canonical="/catalogue"
         breadcrumbs={[{ name: "Catalogue", path: "/catalogue" }]}
       />
+
       <section className="page-hero catalogue-hero">
         <Reveal>
           <p className="eyebrow">Legacy Collection</p>
@@ -82,93 +100,56 @@ export default function CataloguePage() {
       </section>
 
       <section className="section catalogue-layout">
-        <div className="catalogue-sidebar">
-          <SectionHeading
-            eyebrow="Browse"
-            title="Working catalogue filters"
-            body="Browse wrappers by series, class group, subject, or keyword to quickly narrow books for your school."
-          />
-          <div className="filter-stack">
-            <div className="filter-block">
-              <strong>Search books</strong>
-              <input
-                className="filter-search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search by title, class, subject..."
-              />
-            </div>
-            <div className="filter-block">
-              <strong>Series</strong>
-              <div className="filter-options">
-                {seriesOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className={`filter-chip${selectedSeries === option ? " active" : ""}`}
-                    onClick={() => setSelectedSeries(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="filter-block">
-              <strong>Class group</strong>
-              <div className="filter-options">
-                {classOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className={`filter-chip${selectedClassGroup === option ? " active" : ""}`}
-                    onClick={() => setSelectedClassGroup(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="filter-block">
-              <strong>Subject</strong>
-              <div className="filter-options">
-                {subjectOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className={`filter-chip${selectedSubject === option ? " active" : ""}`}
-                    onClick={() => setSelectedSubject(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
+        {/* ── Sidebar ── */}
+        <aside className="catalogue-sidebar">
+          <p className="series-nav-label">Series</p>
+          <nav className="series-nav">
+            {SERIES.map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                className={`series-nav-item${activeId === s.id ? " active" : ""}`}
+                onClick={() => setActiveId(s.id)}
+              >
+                <span className="series-nav-dot" />
+                <span className="series-nav-text">{s.title}</span>
+                {s.isTermBook && <span className="series-nav-badge">Digital</span>}
+              </button>
+            ))}
+          </nav>
+          <div className="series-nav-footer">
+            <p>{SERIES.reduce((n, s) => n + s.books.length, 0)} titles across {SERIES.length} series</p>
           </div>
-          <button type="button" className="button button-secondary filter-reset" onClick={resetFilters}>
-            Clear filters
-          </button>
-        </div>
+        </aside>
+
+        {/* ── Main ── */}
         <div className="catalogue-main">
-          <div className="catalogue-toolbar">
-            <p>
-              Showing <strong>{filteredBooks.length}</strong> titles
-            </p>
-            <span>Filtered by series, class group, and subject</span>
+          <div className="covers-heading-row">
+            <SectionHeading eyebrow="Series" title={active.title} />
+            {active.isTermBook && (
+              <div className="digital-badge">
+                <span className="digital-pulse" />
+                Digital content available
+              </div>
+            )}
           </div>
-          {filteredBooks.length ? (
-            <div className="catalogue-grid">
-              {filteredBooks.map((book, index) => (
-                <Reveal key={`${book.series}-${book.title}`} delay={(index % 6) * 70}>
-                  <BookMockup {...book} />
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <div className="empty-state">
-              <h3>No books match this filter</h3>
-              <p>Try another series, class group, or clear the search to view all books.</p>
-            </div>
-          )}
+
+          <div className="covers-grid">
+            {active.books.map((file, i) => (
+              <Reveal key={file} delay={i * 55}>
+                <figure className="cover-card">
+                  <div className="cover-img-wrap">
+                    <img
+                      src={imgSrc(active.folder, file)}
+                      alt={`${active.title} — ${caption(file)}`}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption>{caption(file)}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </main>
