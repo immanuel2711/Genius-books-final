@@ -67,7 +67,7 @@ const SERIES = [
 ];
 
 function imgSrc(folder, file) {
-  return `/covers-final/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+  return `/covers-front/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
 }
 
 function caption(file) {
