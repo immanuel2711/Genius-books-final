@@ -70,6 +70,23 @@ const SERIES = [
     books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
   },
   {
+    id: "moral-value",
+    title: "Moral Value Education",
+    base: "covers-final",
+    folder: "Moral Value Education",
+    isTermBook: false,
+    books: [
+      "Class 1.png",
+      "Class 2.png",
+      "Class 3.png",
+      "Class 4.png",
+      "Class 5.png",
+      "Class 6.png",
+      "Class 7.png",
+      "Class 8.png",
+    ],
+  },
+  {
     id: "tech-whiz",
     title: "Tech Whiz Computer",
     base: "covers-final",
