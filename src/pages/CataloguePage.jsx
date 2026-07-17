@@ -70,6 +70,14 @@ const SERIES = [
     books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
   },
   {
+    id: "art-craft-strokes",
+    title: "Art and Craft Series — Strokes",
+    base: "covers-final",
+    folder: "Art and craft - Strokes",
+    isTermBook: false,
+    books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
+  },
+  {
     id: "art-craft",
     title: "Art and Craft Series — Young Artist",
     base: "covers",
