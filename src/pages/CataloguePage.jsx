@@ -70,6 +70,23 @@ const SERIES = [
     books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
   },
   {
+    id: "tech-whiz",
+    title: "Tech Whiz Computer",
+    base: "covers-final",
+    folder: "Tech Whiz Computer",
+    isTermBook: false,
+    books: [
+      "Class 1.png",
+      "Class 2.png",
+      "Class 3.png",
+      "Class 4.png",
+      "Class 5.png",
+      "Class 6.png",
+      "Class 7.png",
+      "Class 8.png",
+    ],
+  },
+  {
     id: "art-craft-strokes",
     title: "Art and Craft Series — Strokes",
     base: "covers-final",
