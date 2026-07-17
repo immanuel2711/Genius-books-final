@@ -7,6 +7,7 @@ const SERIES = [
   {
     id: "genius-term",
     title: "Genius Term Book Series",
+    base: "covers-front",
     folder: "Genius  Term Book Series",
     isTermBook: true,
     books: ["LKG - Term 1.png", "LKG - Term 2.png", "LKG _ Term 3.png"],
@@ -14,6 +15,7 @@ const SERIES = [
   {
     id: "genius-term-hindi",
     title: "Genius Term Book Series with Hindi",
+    base: "covers-front",
     folder: "Genius Term Book Series  with Hindi",
     isTermBook: true,
     books: [
@@ -28,6 +30,7 @@ const SERIES = [
   {
     id: "mugil-textbook",
     title: "Mugil Tamil Textbook",
+    base: "covers-front",
     folder: "Mugil Tamil Textbook",
     isTermBook: false,
     books: [
@@ -44,6 +47,7 @@ const SERIES = [
   {
     id: "mugil-grammar",
     title: "Mugil Tamil Grammar",
+    base: "covers-front",
     folder: "Mugil Tamil Grammar",
     isTermBook: false,
     books: [
@@ -60,18 +64,38 @@ const SERIES = [
   {
     id: "mugil-handwriting",
     title: "Mugil Tamil Handwriting",
+    base: "covers-front",
     folder: "Mugil Tamil Handwriting",
     isTermBook: false,
     books: ["Class 1.png", "Class 2.png", "Class 3.png", "Class 4.png", "Class 5.png"],
   },
+  {
+    id: "art-craft",
+    title: "Art and Craft Series — Young Artist",
+    base: "covers",
+    folder: "art and craft books",
+    isTermBook: false,
+    books: [
+      "art and craft A.png",
+      "art and craft B.png",
+      "art and craft C.png",
+      "art and craft 1.png",
+      "art and craft 2.png",
+      "art and craft 3.png",
+      "art and craft 4.png",
+      "art and craft 5.png",
+    ],
+  },
 ];
 
-function imgSrc(folder, file) {
-  return `/covers-front/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+function imgSrc(base, folder, file) {
+  const parts = [base, folder, file].filter(Boolean);
+  return "/" + parts.map(encodeURIComponent).join("/");
 }
 
 function caption(file) {
-  return file.replace(/\.[^.]+$/, "").replace(/_/g, " - ").trim();
+  const name = file.replace(/\.[^.]+$/, "").replace(/_/g, " - ").trim();
+  return name.replace(/^art and craft\s+/i, "Level ");
 }
 
 export default function CataloguePage() {
@@ -140,7 +164,7 @@ export default function CataloguePage() {
                 <figure className="cover-card">
                   <div className="cover-img-wrap">
                     <img
-                      src={imgSrc(active.folder, file)}
+                      src={imgSrc(active.base, active.folder, file)}
                       alt={`${active.title} — ${caption(file)}`}
                       loading="lazy"
                     />
